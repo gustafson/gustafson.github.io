@@ -1,0 +1,126 @@
+---
+title: Calculix Extras for Ubuntu
+tags: CalculiX Ubuntu
+permalink: CalculiX_Extras_Ubuntu.html
+article_header:
+  type: cover
+  image: 
+    src: /assets/images/2015/11/background_v2-16.png
+license: false
+---
+
+<p><strong><span style="color: #ff0000;">The things that are <mark>highlighted</mark>, should be copied/pasted into the terminal.</span></strong></p>
+<ol>
+  <li>IF you plan a deployment inside a virtual machine, install virtualbox: (If you don't know what virtualbox is, you can ignore this section.)
+    <ol>
+      <li>Then install ubuntu 64 bit.</li>
+      <li>Setup memory and CPU info (virtual machine not yet booted)</li>
+      <li>Auto-mount a shared folder so that you can move files back and forth.</li>
+      <li>Install "guest additions" (the CD should be mounted... browse files and look for the CD, the run software)</li>
+      <li>(Restart for ease of explanation)</li>
+    </ol>
+  </li>
+  <li><b>Install CalculiX software dependencies</b>
+    <ol>
+      <li><b>You may use the "software center" or ...</b></li>
+      <li><b>Alternatively, you may use the command line of a<b> </b>terminal. I prefer this.</b>
+	<ol>
+	  <li>To launch the terminal:
+	    <ol>
+	      <li>Applications menu -&gt; Accessories -&gt; Terminal.</li>
+	      <li>Keyboard Shortcut: Ctrl + Alt + T</li>
+	    </ol>
+	  </li>
+	  <li>Make yourself the root user.
+	    <ol>
+	      <li><span style="color: red;"><mark>sudo su</mark></span></li>
+	    </ol>
+	  </li>
+	  <li>Pull the latest list of packages from Ubuntu
+	    <ol>
+	      <li><span style="color: red;"><mark>apt-get update</mark></span></li>
+	    </ol>
+	  </li>
+	  <li>Upgrade to the latest available packages of those that are currently installed. This will take some time (the first time especially).
+	    <ol>
+	      <li><span style="color: red;"><mark>apt-get upgrade</mark></span></li>
+	    </ol>
+	  </li>
+	  <li>Install the compilers we need:
+	    <ol>
+	      <li><span style="color: red;"><mark>apt-get install libexodusii-dev libspooles-dev libblas3 libblas-dev liblapack3 liblapack-dev libarpack2 libarpack2-dev libparpack2 gfortran</mark></span></li>
+	    </ol>
+	  </li>
+	  <li>Install some (essential) software:
+	    <ol>
+	      <li><span style="color: red;"><mark>apt-get install emacs paraview</mark></span><mark></mark></li>
+	    </ol>
+	  </li>
+	</ol>
+      </li>
+      <li><b>Become a regular use again (exit from root)</b>
+	<ol>
+	  <li><span style="color: red;"><span style="color: red;"><mark>exit</mark></span></span></li>
+	</ol>
+      </li>
+    </ol>
+  </li>
+  <li><b>Setup a CalculiX environment</b>
+    <ol>
+      <li>Follow the instructions 2-4 at <a href="CalculiX_Extras.html">here </a></li>
+      <li><span style="color: red;"><mark>cd CalculiX/ccx_2.17/src</mark></span></li>
+      <li>In the src directory, alter the make process using these files:
+	<ol>
+	  <li><span style="color: red;"><mark>patch -p3 &lt; ../../../ccx_extras.2.17.exo.patch</mark></span></li>
+	  <li><span style="color: red;"><mark>patch -p3 &lt; ../../../ccx_extras.2.17.solver.patch</mark></span></li>
+	  <li><span style="color: red;"><mark>wget <a href="/assets/code/calculix/ubuntu-ccx-makefile-2.17.zip">ubuntu-ccx-makefile-2.17.zip</a></mark></span></li>
+	  <li><span style="color: red;"><mark>unzip -o ubuntu-ccx-makefile.zip</mark></span></li>
+	</ol>
+      </li>
+      <li>Edit the makefile as necessary
+	<ol>
+	  <li><span style="color: red;"><mark>emacs Makefile</mark></span></li>
+	</ol>
+      </li>
+      <li>Then make the binary:
+	<ol>
+	  <li><span style="color: red;"><mark>make -j8</mark></span></li>
+	</ol>
+      </li>
+      <li>For convenience, add this working directory to your PATH<br />variable. This needs only be done once:
+	<p> </p>
+	<ol>
+	  <li><span style="color: red;"><mark>echo PATH=$PATH:~/CalculiX/ccx_2.17/src &gt;&gt; ~/.bashrc</mark></span></li>
+	  <li><span style="color: red;"><mark>source ~/.bashrc</mark></span></li>
+	</ol>
+      </li>
+    </ol>
+  </li>
+  <li><b>Then run a test job:</b>
+    <ol>
+      <li><span style="color: red;"><mark>cd</mark></span></li>
+      <li><span style="color: red;"><mark>cd CalculiX</mark></span></li>
+      <li><span style="color: red;"><mark>mkdir test</mark></span></li>
+      <li><span style="color: red;"><mark>cd test</mark></span></li>
+      <li><span style="color: red;"><mark>wget /assets/examples/simplebeam.zip</mark></span></li>
+      <li><span style="color: red;"><mark>unzip simplebeam.zip</mark></span></li>
+      <li><span style="color: red;"><mark>ccx_2.17 simplebeam_spol -o exo</mark></span></li>
+    </ol>
+    <ol>
+      <li><b>Visualize with Paraview</b>
+	<ol>
+	  <li><span style="color: red;"><mark>paraview simplebeam_spol.exo &amp;</mark></span></li>
+	  <li>In paraview, in the lower left corner, toggle U, S, and E.</li>
+	  <li>Click "apply" at the top Change the "solid color" (near top) to "S".</li>
+	  <li>Change "Surface" to "Surface with Edges"</li>
+	  <li>Spin the model in the window</li>
+	</ol>
+      </li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li><b>Support the maintenance of this software</b><br /><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"><input alt="PayPal - The safer, easier way to pay online!" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" type="image" /></form></li>
+    </ol>
+  </li>
+</ol>

@@ -1,0 +1,128 @@
+---
+title: Calculix Extras
+tags: CalculiX
+permalink: CalculiX_Extras.html
+article_header:
+  type: cover
+  image: 
+    src: /assets/images/2015/11/background_v2-16.png
+license: false
+---
+
+<h1><strong>Thank you for your interest in CalculiX Extras. (<a href="http://ccx.openaircraft.com/ccx_extras_changelog.txt">Last update 8/14/2019</a>)</strong><br><strong> Extensions written by Peter A. Gustafson. </strong><br><strong> Current patch level - 2.17 </strong></h1>
+<h1><strong>Capabilities</strong></h1>
+<p><strong>CalculiX Extras builds on the existing <a href="http://www.calculix.de/">CalculiX</a> v2.17 code base.</strong></p>
+<ul>
+  <li>It adds CUDA based solvers. Please note this is research level code. It is considered a stable code but must be used with due diligence.
+    <ul>
+      <li>Currently, these solvers can be called for static analysis in mechanical models in CalculiX.
+	<ul>
+	  <li><a href="https://github.com/cusplibrary/cusplibrary">Cuda-Cusp</a> (Outstanding performance for appropriate models.)</li>
+	  <li><a href="https://people.engr.tamu.edu/davis/suitesparse.html">SuiteSparse Cholmod</a> (Modest performance)</li>
+	</ul>
+      </li>
+    </ul>
+  </li>
+  <li>It extends CalculiX to write results into <a href="https://gsjaardema.github.io/seacas/">ExodusII </a>format. Postprocessing can be accomplished with several readers. A recommended postprocessor is <a href="http://www.paraview.org/">Paraview</a>.</li>
+</ul>
+<p><a href="/assets/images/2016/01/ccx_exodusII.png"><img class="aligncenter wp-image-39 size-large" src="/assets/images/2016/01/ccx_exodusII-1024x586.png" alt="ccx_exodusII" width="584" height="334"></a></p>
+<p><strong>Build Instructions</strong></p>
+<p>These instructions are limited. They assume you are able to build CalculiX from source. <i>Warning: building all these libraries from source can be a challenge for seasoned developers. Ubuntu specific instructions can be found at <a href="calculix-extras-for-ubuntu">CalculiX Extras for Ubuntu</a></i></p>
+<ol>
+  <li>Choose your extra: exo, solver, or both
+    <ol>
+      <li>For exo files: download, build, and install <a href="http://sourceforge.net/projects/exodusii/">ExodusII</a></li>
+      <li>For additional solvers: download and install:
+	<ol>
+	  <li><a href="http://cusplibrary.github.com">Cuda-Cusp </a>(The cuda based solver requires an install of Nvidia's <a href="https://developer.nvidia.com/cuda-downloads">CUDA SDK and libs</a></li>
+	  <li>SuiteSparse (which includes Cholmod )</li>
+	</ol>
+      </li>
+    </ol>
+  </li>
+  <li>Download <a href="/assets/code/calculix/ccx_2.17.src.tar.bz2">CalculiX ccx version 2.17</a></li>
+  <li>Download <a href="#Download">CalculiX Extras patches</a></li>
+  <li>Unpack ccx_2.17.src.tar.bz2
+    <ol>
+      <li><mark>tar xavf ccx_2.17.src.tar.bz2</mark></li>
+    </ol>
+  </li>
+  <li>Patch the Makefile
+    <ol>
+      <li><mark>cd CalculiX/ccx_2.17</mark></li>
+      <li><mark>patch -p2 &lt; ../../ccx_extras.2.17.Makefile.patch</mark></li>
+    </ol>
+  </li>
+  <li>Apply patches your extra: exo, solver, or both (order of patch application doesn't matter)
+    <ol>
+      <li><mark>patch -p2 &lt; ../../ccx_extras.2.17.exo.patch</mark></li>
+      <li><mark>patch -p2 &lt; ../../ccx_extras.2.17.solver.patch</mark></li>
+    </ol>
+  </li>
+  <li>Modify the Makefile based on the locations of your libraries
+    <ol>
+      <li><mark>cd src</mark></li>
+      <li><mark>emacs Makefile</mark></li>
+    </ol>
+  </li>
+  <li>Make</li>
+  <li>Send bug reports to peter.gustafson@wmich.edu</li>
+</ol>
+<p><strong>FAQ </strong></p>
+<ul>
+  <li>If you've made an attempt... Yes, I'd be glad to help you! But you must be able to compile ccx (without my patches) first. See the first line of the build instructions... this can be tough and this is the minimum starting point for support from me. (PS The ccx mailing list is great.)</li>
+  <li>If you've not yet made an attempt, please try before you contact me. <a href="http://ccx.openaircraft.com/FAQ.html">See the FAQ to understand why...</a></li>
+</ul>
+<p><strong>Usage<br></strong></p>
+<ul>
+  <li>The solvers can be called using the *static keyword:
+    <ul>
+      <li>*static, solver=cudacusp</li>
+      <li>*static, solver=cholmod</li>
+    </ul>
+  </li>
+  <li>ExodusII output format is called on job execution using the command line.
+    <ul>
+      <li>ccx -i jobname -o exo</li>
+    </ul>
+  </li>
+</ul>
+<p><strong> Benchmarking</strong><br>A rigorous round of <a href="http://arc.aiaa.org/doi/pdf/10.2514/6.2014-0346">benchmarking </a>has been completed. If you are unable to download the paper, please contact me using the submission form below.</p>
+<ul>
+  <li style="list-style-type: none;">
+    <ul>
+      <li>I'm happy to collaborate with others who are interested in further benchmarking.</li>
+      <li>Benchmarking will be highly dependent on hardware and software configuration.</li>
+      <li>I'm seeking additional "real world" models for use in benchmarking.</li>
+      <li>An NSF grant to WMU funded the hardware used for benchmarking.</li>
+    </ul>
+  </li>
+</ul>
+<p><strong>Known Bugs and Functional Deficits</strong></p>
+<ul>
+  <li>The solvers have only been applied to static solid mechanics models.</li>
+  <li>The solvers have have not been actively tested since version 2.11 so your mileage may vary.</li>
+  <li>There are known limitations for output requests with ExodusII
+    <ul>
+      <li>Several output requests to ExodusII format are untested.</li>
+      <li>It is not currently possible to change output requests <em>between steps</em></li>
+      <li>Node sets are partially implemented but element sets are not implemented</li>
+    </ul>
+  </li>
+  <li><b>Developing for CalculiX</b>
+    <ul>
+      <li>Doxygen was used to generate documentation which may help with development for CalculiX. The <a href="http://ccx.openaircraft.com/ccx-doxygen/html/index.html">documentation is here</a>. Note also the user documentation for <a href="http://ccx.openaircraft.com/ccx-doc/ccx_2.17/doc/ccx/index.html">ccx </a>and <a href="http://ccx.openaircraft.com/ccx-doc/cgx_2.17/doc/cgx/index.html">cgx</a>.</li>
+    </ul>
+  </li>
+</ul>
+<p><strong> <a id="Download"></a> Download </strong></p>
+<p>In order to quantify interest and justify ongoing development, I ask that you submit your name and organizational info. <i>This info will not be used for any marketing. It will not be sold. </i>Without any expressed interest, my time on this project is not justified.</p>
+<p>Your participation is voluntary. Please resubmit with each version you download.</p>
+<p>Pressing the submit button should launch your email program. You will see exactly what is submitted.</p>
+<p>Thank you for your consideration.</p>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"><input name="cmd" type="hidden" value="_s-xclick"><br><input name="encrypted" type="hidden" value="-----BEGIN PKCS7-----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-----END PKCS7-----"><br><input alt="PayPal - The safer, easier way to pay online!" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" type="image"><br><img src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" alt="" width="1" height="1" border="0"></form>
+<p>Download the latest patches.</p>
+<p>
+  <a href="/assets/code/calculix/ccx_extras.2.17.Makefile.patch">ccx_extras.2.17.Makefile.patch</a><br>
+  <a href="/assets/code/calculix/ccx_extras.2.17.exo.patch">ccx_extras.2.17.exo.patch</a><br>
+  <a href="/assets/code/calculix/ccx_extras.2.17.solver.patch">ccx_extras.2.17.solver.patch</a></p>
