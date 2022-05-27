@@ -1,8 +1,7 @@
 ---
-layout: landing
+layout: page
 title: Peter A. Gustafson, PhD
-excerpt: >
-  Professor of Mechanical and Aerospace Engineering
+excerpt: Professor of Mechanical and Aerospace Engineering
 permalink: /index.html
 
 ## sidebar:
@@ -137,6 +136,7 @@ a:active {
 
 </style>
 
+
 <div class="pagemargin">
   <td>
     <table cellspacing="0" cellpadding="2" border="0">
@@ -169,28 +169,29 @@ a:active {
 	</tr>
       </tbody>
     </table>
-
-    <p><span style="font-weight: bold;">Course Information</span></p><br>
-    <p style="text-align: left; margin-left: 40px;">
-      <a href="courses/AE2610.html">AE 2610 Introduction to Aerospace Engineering</a><br>
-      <a href="courses/AE4630.html">AE 4630 Aircraft Structural Design</a><br>
-      <a href="courses/AE4690.html">AE 4690 Aircraft Design</a><br>
-      <a href="courses/ME5200.html">ME 5200 Orthopaedic Biomechanics</a><br>
-      <a href="courses/ME5610.html">ME 5610 Finite Element Method</a><br>
-      <a href="courses/ME6610.html">ME 6610 Advanced Finite Element Method</a><br>
-      <a href="courses/ME6510.xht">ME 6510 Advanced Strength of Materials</a><br>
-      <a href="courses/MedE6340.html">MedE 6340 Medical Engineering Modeling and Testing</a><br>
-    </p>
-    <p style="text-align: left; margin-left: 40px;">
-      <a href="courses/ME6520.xht">ME 6520 Composite Materials</a></p> <br>
-    <p style="text-align: left; color: rgb(0, 0, 0);">
-      <a style="font-weight: bold;" href="interests.html">Research Interests</a><br>
-    </p>
-    <p style="text-align: left; color: rgb(0, 0, 0);"><a style=" font-weight: bold;" href="publications.html">Publications</a> </p> <br>
-    <a style="font-weight: bold;"
-       href="https://www.facebook.com/aiaapegasus/">WMU AIAA Student Chapter (Pegasus)</a><br>
-    <p style="text-align: left;">
-      <a style="font-weight: bold;" href="https://wmich.edu/mechanical-aerospace">MAE Dept</a>
-    </p> <br>
-  </td>
+	</td>
 </div>
+
+## Course Information
+
+-   [AE 2610 Introduction to Aerospace Engineering](courses/AE2610.html)
+-   [AE 4630 Aircraft Structural Design](courses/AE4630.html)
+-   [AE 4690 Aircraft Design](courses/AE4690.html)
+-   [ME 5200 Orthopaedic Biomechanics](courses/ME5200.html)
+-   [ME 5610 Finite Element Method](courses/ME5610.html)
+-   [ME 6610 Advanced Finite Element Method](courses/ME6610.html)
+-   [ME 6510 Advanced Strength of Materials](courses/ME6510.xht)
+-   [MedE 6340 Medical Engineering Modeling and Testing](courses/MedE6340.html)
+-   [ME 6520 Composite Materials](courses/ME6520.xht)
+
+## Research
+
+-   [Interests and Activities](interests.html)
+-   [Publications](publications.html)
+
+## WMU Organizations
+
+-   [Department of Mechanical and Aerospace Engineering](https://wmich.edu/mechanical-aerospace)
+-   [WMU AIAA Student Chapter
+    (Pegasus)](https://www.facebook.com/aiaapegasus/)
+
