@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Peter A. Gustafson, PhD
+title: Prof Peter A. Gustafson, PhD
 excerpt: Professor of Mechanical and Aerospace Engineering
 permalink: /index.html
 
@@ -138,38 +138,37 @@ a:active {
 
 
 <div class="pagemargin">
-  <td>
-    <table cellspacing="0" cellpadding="2" border="0">
-      <colgroup><col width="50%"> <col width="50%"> </colgroup><tbody>
-	<tr>
-          <td width="50%">
-            <p align="center">
-	      <img style="border: 0px solid ;
-			  width: 100%;
-			  alt='Headshot of Prof. Gustafson';"
-		   src='assets/images/Gustafson_headshot.jpg'></p>
-          </td>
-          <td width="50%">
-            <p align="right">
-              Professor<br>
-              Mechanical and Aerospace Engineering<br><br>
-	      
-              Ph.D. Aerospace Engineering, 2008<br>
-              M.S. Aerospace Engineering, 2004<br>
-              University of Michigan<br>
-              S.B. Mechanical Engineering, 1999<br>
-              Massachusetts Institute of Technology<br><br>
+  <table cellspacing="0" cellpadding="5" border="0">
+    <td width="40%">
+      <p align="left">
+	<img style="border: 3px solid;
+		    width: 100%;
+		    alt='Headshot of Prof. Gustafson';"
+	     src='assets/images/Gustafson_headshot.jpg'>
+      </p>
+    </td>
+    <td width="60%">
+      <p align="right">
+        Professor of
+        Mechanical and Aerospace Engineering<br>
 
-              G-215 Floyd Hall<br>
-              <a href="http://www.wmich.edu/">Western Michigan University</a><br>
-              Kalamazoo, MI 49008<br>
-              269-276-3423<br>
-              <a href="mailto:peter.gustafson@wmich.edu?subject=">peter.gustafson@wmich.edu</a></p>
-          </td>
-	</tr>
-      </tbody>
-    </table>
-	</td>
+        Associate Professor of
+        Medical Engineering<br><br>
+	
+        <a href="http://www.wmich.edu/">Western Michigan University</a><br>
+        G-215 Floyd Hall<br>
+        Kalamazoo, MI 49008<br>
+        269-276-3423<br>
+        <a href="mailto:peter.gustafson@wmich.edu?subject=Homepage Inquiry">peter.gustafson@wmich.edu</a><br><br>
+
+	Ph.D. Aerospace Engineering, 2008<br>
+	M.S. Aerospace Engineering, 2004<br>
+	University of Michigan<br>
+	S.B. Mechanical Engineering, 1999<br>
+	Massachusetts Institute of Technology
+      </p>
+    </td>
+  </table>
 </div>
 
 ## Course Information
