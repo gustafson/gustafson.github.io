@@ -8,15 +8,22 @@ permalink: /interests.html
 
 [Dr. Peter A. Gustafson](https://gustafson.github.io)
 
--   General Areas of Interest
-    -   [Open and Collaborative Engineering](openengineering.html)
-    -   Composite Materials
-    -   Finite Element Modeling
-	-   Multiscale Methods for Structural Analysis
-	-   Machine Learning Applications in Structural Mechanics
-    -   Orthopaedic Biomechanics
+## General areas of interest
 
-[Publications](publications.html)
+-   [Open and Collaborative Engineering](openengineering.html)
+-   Composite Materials
+-   Finite Element Modeling
+-   Multiscale Methods for Structural Analysis
+-   Machine Learning Applications in Structural Mechanics
+-   Orthopaedic Biomechanics
+
+## [Publications](publications.html)
+
+## Media
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/ojuQq0hNBNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Please visit [Dr. Gustafson' youtube channel](https://www.youtube.com/channel/UCRQxbJi1rK2RBXektLAbCJg)
 
 ### The vision of this laboratory is to have a positive impact on our world.
 
